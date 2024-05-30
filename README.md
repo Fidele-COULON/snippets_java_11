@@ -1,2 +1,2 @@
-# snippets_java_11
-Liste de snippets Java 11
+# snippets_java_17
+Ensemble de snippets Java 17
