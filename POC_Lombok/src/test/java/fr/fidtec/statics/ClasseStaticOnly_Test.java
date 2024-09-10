@@ -4,8 +4,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import fr.fidtec.statics.ClasseStaticOnly;
-
 public class ClasseStaticOnly_Test {
 
 	@Test
