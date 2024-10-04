@@ -1,10 +1,10 @@
 package fr.fidtec.mocks;
 
-public class Game {
+public class GameSimple {
 	
 	private Player player;
 
-    public Game(Player player) {
+    public GameSimple(Player player) {
         this.player = player;
     }
 

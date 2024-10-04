@@ -10,9 +10,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 // https://stackoverflow.com/questions/55792535/how-to-fix-mockitoextension-class-not-resolved-error
 @ExtendWith(MockitoExtension.class)
-class MockTest {
+class MockSimpleTest {
 
-	// https://stackoverflow.com/questions/16467685/difference-between-mock-and-injectmocks
+	/* https://stackoverflow.com/questions/16467685/difference-between-mock-and-injectmocks
+	 * 
+	 * @Mock annotation mocks the concerned object.
+	 * 
+	 * @InjectMocks annotation allows to inject into the underlying object the different (and relevant) mocks created by @Mock.
+	 */
 	@Mock
     Player player;
  
@@ -23,16 +28,21 @@ class MockTest {
 		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	*/
+	
+	/* avec InjectMocks
+	 you don't have to do this
+	 	Game game = new Game(player);
+	*/
 
 	@InjectMocks
-    Game game;
+    GameSimple gameSimple;
 
     @Test
     void attackWithSwordTest() {
         
     	Mockito.when(player.getWeapon()).thenReturn("Sword");
 
-    	Assertions.assertEquals("Player attack with: Sword", game.attack());
+    	Assertions.assertEquals("Player attack with: Sword", gameSimple.attack());
     }
 	    
 }
