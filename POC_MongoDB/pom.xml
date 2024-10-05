@@ -1,53 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>fr.fidtec</groupId>
+
+  <parent>
+		<groupId>fr.fidtec</groupId>
+		<artifactId>Snippets_java_1x</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+  </parent>
+
   <artifactId>POC_MongoDB</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-	<maven.compiler.target>17</maven.compiler.target>
-	<junit.version>4.13.2</junit.version>
-	<log4j.version>2.23.1</log4j.version>
-	<lombok.version>1.18.32</lombok.version>
-	<mongodb.version>4.8.2</mongodb.version>
+  	<mongodb.version>4.8.2</mongodb.version>
   </properties> 
 
   <dependencies>
 	<dependency>
 		<groupId>org.projectlombok</groupId>
 		<artifactId>lombok</artifactId>
-		<version>${lombok.version}</version>
 		<scope>provided</scope>
 	</dependency>
-	
-	<!--https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync-->
+
 	<dependency>
 	    <groupId>org.mongodb</groupId>
 	    <artifactId>mongodb-driver-sync</artifactId>
 	    <version>${mongodb.version}</version>
 	</dependency>
 
-	<!-- log4j2 uniquement -->
-	<dependency>
-	    <groupId>org.apache.logging.log4j</groupId>
-	    <artifactId>log4j-api</artifactId>
-	    <version>${log4j.version}</version>
-	</dependency>
-	
 	<dependency>
 	    <groupId>org.apache.logging.log4j</groupId>
 	    <artifactId>log4j-core</artifactId>
-	    <version>${log4j.version}</version>
 	</dependency>
 	
-	<!--  The Log4j 2 SLF4J Binding allows applications coded to the SLF4J API to use Log4j 2 as the implementation.
-	      https://logging.apache.org/log4j/2.x/log4j-slf4j-impl/index.html -->
 	<dependency>
 	    <groupId>org.apache.logging.log4j</groupId>
 	    <artifactId>log4j-slf4j-impl</artifactId>
-	    <version>${log4j.version}</version>
 	</dependency> 
 	
   </dependencies>
