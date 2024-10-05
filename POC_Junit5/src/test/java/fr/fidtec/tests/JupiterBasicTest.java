@@ -1,12 +1,7 @@
 package fr.fidtec.tests;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.*;
+import org.opentest4j.AssertionFailedError;
 
 //import org.junit.jupiter.api.Assertions; // NOSONAR
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,19 +12,16 @@ import static org.junit.jupiter.api.Assumptions.*;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 // https://www.baeldung.com/junit-5
 // https://www.baeldung.com/junit-5-migration
-// Junit 5 : java 8+ + tests en // + grande ganularité dans les imports (JUnit Platform + JUnit Vintage)
+// Junit 5 : java 8+ + tests en // + grande granularité dans les imports (JUnit Platform + JUnit Vintage)
 // The most important one is that we can no longer use the @Test annotation for specifying expectations
 // @Test(expected = Exception.class) don't exist anymore : use assertThrows
 // idem timeout
 class JupiterBasicTest {
-	
-	@Test
-	void shouldFailBecauseTimeout() {
-	    Assertions.assertTimeout(Duration.ofMillis(1), () -> Thread.sleep(10)); // NOSONAR
-	}
 
 	@BeforeEach // remplace Junit4 @Before
 	void BeforeEach() {
@@ -42,19 +34,36 @@ class JupiterBasicTest {
 	}
 	
 	@BeforeAll // remplace Junit4 @BeforeClass
-	void BeforeAll() {
+	static void BeforeAll() {
 		System.out.println("BeforeAll");
 	}
 	
 	@AfterAll  // remplace Junit4 @AfterClass
-	void AfterAll() {
+	static void AfterAll() {
 		System.out.println("AfterAll");
 	}
+
 	@Disabled("Ceci est un test désactivé") // @Ignoreremplace Junit4
 	void Disabled() {
 		System.out.println("Disabled");
 	}
-	
+
+	@Test
+	void shouldSuccessBecauseTimeout1() {
+		Assertions.assertTimeout(Duration.ofMillis(50), () -> Thread.sleep(10)); // NOSONAR
+	}
+
+	@Test
+	@Timeout(value = 50, unit = TimeUnit.MILLISECONDS)
+	void shouldSuccessBecauseTimeout2() throws InterruptedException {
+		Thread.sleep(10); // NOSONAR
+	}
+
+	@Test
+	void shouldFailBecauseTimeout1() {
+		Assertions.assertThrows( AssertionFailedError.class, () -> Assertions.assertTimeout(Duration.ofMillis(1), () -> Thread.sleep(10))); // NOSONAR
+	}
+
 	// assertAll : group assertions in JUnit 5
 	@Test
 	void shouldAssertAllTheGroup() {
@@ -62,7 +71,7 @@ class JupiterBasicTest {
 	    assertAll("List is not incremental",
 	        () -> Assertions.assertEquals(1, list.get(0).intValue()),
 	        () -> Assertions.assertEquals(2, list.get(1).intValue()),
-	        () -> Assertions.assertEquals(3, list.get(2).intValue())
+	        () -> Assertions.assertEquals(4, list.get(2).intValue())
 	    );
 	}
 	

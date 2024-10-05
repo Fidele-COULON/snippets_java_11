@@ -4,6 +4,9 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ClasseStaticOnly_Test {
 
 	@Test
@@ -11,7 +14,7 @@ public class ClasseStaticOnly_Test {
 		
 		String response = ClasseStaticOnly.getMessage("Fidele");
 		
-		System.out.println("ClasseStaticOnlygetMessage_Test :" + response);
+		log.info("ClasseStaticOnlygetMessage_Test :" + response);
 		
 		assertNotNull(response);
 	}
