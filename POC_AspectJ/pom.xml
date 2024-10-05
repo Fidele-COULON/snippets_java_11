@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+	<groupId>fr.fidtec</groupId>
+	<artifactId>Snippets_java_1x</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>POC_AspectJ</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+ 
+  <properties>
+	<aspectj.version>1.9.7</aspectj.version>
+	<aspectj.plugin.version>1.15.0</aspectj.plugin.version>
+  </properties>
+  
+  <dependencies>
+  
+    <dependency>
+       <groupId>org.aspectj</groupId>
+       <artifactId>aspectjrt</artifactId>
+       <version>${aspectj.version}</version>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>${aspectj.version}</version>
+    </dependency>
+    
+	<dependency>
+ 	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-core</artifactId>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.apache.logging.log4j</groupId>
+    	<artifactId>log4j-slf4j-impl</artifactId>
+	</dependency>
+
+	<!-- cohabitation compliquée avec aspectj + java 17 -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	</dependency>
+	
+  </dependencies>
+  
+  <build>
+  	<plugins>
+		<plugin>
+		    <groupId>org.codehaus.mojo</groupId>
+		    <artifactId>aspectj-maven-plugin</artifactId>
+		    <version>${aspectj.plugin.version}</version>
+		    
+		    <configuration>
+	          <source>16</source>
+		      <target>16</target>
+	          <complianceLevel>16</complianceLevel>
+	        </configuration>
+	        
+		    <executions>
+		        <execution>
+		            <goals>
+		                <!-- use this goal to weave all your main classes -->
+		                <goal>compile</goal>
+		            </goals>
+		        </execution>
+		    </executions>
+ 		</plugin>
+  	</plugins>
+  </build>
+  
+</project>
