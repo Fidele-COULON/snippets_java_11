@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 // https://www.baeldung.com/java-completablefuture
-class SimpleCompletableFuture_Test {
+class SimpleCompletableFutureTest {
 
 	// If we already know the result of a computation, we can use the static completedFuture method with an argument that represents the result of this computation.
 	// Consequently, the get method of the Future will never block, immediately returning this result instead:
@@ -44,6 +44,5 @@ class SimpleCompletableFuture_Test {
 		future2.get(); // return void
 		
 		Assertions.assertTrue(future2.isDone());
-	}	
-	
+	}
 }

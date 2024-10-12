@@ -7,7 +7,7 @@ import org.junit.Test;
 import fr.fidtec.service.CachedService;
 import fr.fidtec.service.Log;
 
-public class CachedService_Test {
+public class CachedServiceTest {
 
 	@Test
 	public void Message_Test() {

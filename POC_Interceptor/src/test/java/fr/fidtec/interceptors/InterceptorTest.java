@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 // https://dev.java/learn/reflection/interceptor/
-public class Interceptor_Test {
+public class InterceptorTest {
 
 	@Test
 	public void SomeInterceptedService_Test() {
