@@ -2,14 +2,15 @@ package fr.fidtec.concurrents;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
 
 // https://dzone.com/articles/java-8-parallel-processing-with-completable-future
-class CompletableFutureParallelTest2 {
+class CompletableFutureParallel2Test {
 
     private static Integer addFun1(int a, int b) {
         System.out.println(Thread.currentThread().getName());
@@ -62,7 +63,7 @@ class CompletableFutureParallelTest2 {
         // "after the completion of execution for all threads, collect all the return values from all the threads."
         CompletableFuture<List<Integer>> allCompletableFuture = allFutures.thenApply(future -> {
             return futuresList.stream().map(completableFuture -> completableFuture.join())
-                    .collect(Collectors.toList());
+                    .toList();
         });
 
         // define the future list as a completable future.
@@ -71,6 +72,9 @@ class CompletableFutureParallelTest2 {
         try {
             List<Integer> finalList = (List<Integer>) completableFuture.get();
             System.out.print(finalList);
+            
+            assertNotNull(finalList);
+            
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

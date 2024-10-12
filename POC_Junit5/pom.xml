@@ -10,7 +10,6 @@
   </parent>
 
   <artifactId>POC_Junit5</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   
   <properties>
 	<mokito.version>5.14.1</mokito.version>

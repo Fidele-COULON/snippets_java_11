@@ -13,7 +13,6 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 // https://www.baeldung.com/junit-5
 // https://www.baeldung.com/junit-5-migration
@@ -57,6 +56,7 @@ class JupiterBasicTest {
 	@Timeout(value = 50, unit = TimeUnit.MILLISECONDS)
 	void shouldSuccessBecauseTimeout2() throws InterruptedException {
 		Thread.sleep(10); // NOSONAR
+		assertTrue(false);
 	}
 
 	@Test

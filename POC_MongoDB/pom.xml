@@ -9,7 +9,6 @@
   </parent>
 
   <artifactId>POC_MongoDB</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   
   <properties>
   	<mongodb.version>4.8.2</mongodb.version>

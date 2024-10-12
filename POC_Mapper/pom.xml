@@ -9,7 +9,6 @@
   </parent>
   
   <artifactId>POC_Mapper</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   
   <properties>
   	<org.mapstruct.version>1.6.2</org.mapstruct.version>

@@ -9,9 +9,8 @@
   </parent>
 
   <artifactId>POC_CompletableFuture</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   
-   <properties>
+  <properties>
 
   </properties> 
 
@@ -20,8 +19,6 @@
 	<dependency>
 		<groupId>org.projectlombok</groupId>
 		<artifactId>lombok</artifactId>
-		<version>${lombok.version}</version>
-		<scope>provided</scope>
 	</dependency>
 	
 	<dependency>
@@ -30,6 +27,14 @@
         <scope>test</scope>
     </dependency>
     
+    <!-- https://mvnrepository.com/artifact/org.awaitility/awaitility -->
+	<dependency>
+	    <groupId>org.awaitility</groupId>
+	    <artifactId>awaitility</artifactId>
+	    <version>4.2.2</version>
+	    <scope>test</scope>
+	</dependency>
+
   </dependencies>
   
 </project>
