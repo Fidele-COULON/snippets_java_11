@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+		<groupId>fr.fidtec</groupId>
+		<artifactId>Snippets_java_1x</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>POC_Mapper</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+  	<org.mapstruct.version>1.6.2</org.mapstruct.version>
+  </properties>
+  
+  <dependencies>
+  
+	    <dependency>
+	 	    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		</dependency>
+		
+		<dependency>
+	    	<groupId>org.apache.logging.log4j</groupId>
+	    	<artifactId>log4j-slf4j-impl</artifactId>
+		</dependency>
+	
+		<!-- cohabitation avec mapstruct : mettre lombok en premier -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.mapstruct</groupId>
+		    <artifactId>mapstruct</artifactId>
+		    <version>${org.mapstruct.version}</version>
+		</dependency>
+	
+		<dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+	    
+	    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		</dependency>
+	
+  </dependencies>
+ 
+ <build>
+  	<plugins>
+		
+		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-compiler-plugin</artifactId>
+		    <version>3.5.1</version>
+		    <configuration>
+		        <source>${java.version}</source>
+		        <target>${java.version}</target>
+		        <annotationProcessorPaths>
+			        <path>
+		                <groupId>org.projectlombok</groupId>
+		                <artifactId>lombok</artifactId>
+		                <version>${org.projectlombok.version}</version>
+		            </path>
+		            
+		            <!-- This is needed when using Lombok 1.18.16 and above -->
+		            <path>
+		                <groupId>org.projectlombok</groupId>
+		                <artifactId>lombok-mapstruct-binding</artifactId>
+		                <version>0.2.0</version>
+		            </path>
+		            
+		            <path>
+		                <groupId>org.mapstruct</groupId>
+		                <artifactId>mapstruct-processor</artifactId>
+		                <version>${org.mapstruct.version}</version>
+		            </path>
+		        </annotationProcessorPaths>
+		    </configuration>
+		</plugin>
+	</plugins>
+  </build> 
+</project>
