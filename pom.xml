@@ -107,8 +107,9 @@
     <module>/POC_Interceptor</module>
     <module>/POC_Junit5</module>
     <module>/POC_Lombok</module>
-    <module>POC_Mapper</module>
+    <module>/POC_Mapper</module>
     <module>/POC_MongoDB</module>   
+    <module>/POC_Streams</module>
   </modules>
 
 </project>
