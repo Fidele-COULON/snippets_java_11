@@ -10,10 +10,6 @@
 
   <artifactId>POC_CompletableFuture</artifactId>
   
-  <properties>
-
-  </properties> 
-
   <dependencies>
   
 	<dependency>
