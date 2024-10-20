@@ -20,6 +20,8 @@
       <lombok.version>1.18.34</lombok.version>
       <mokito.version>5.14.1</mokito.version>
       <slf4j.version>1.7.36</slf4j.version>
+      <sonar.organization>fidele-coulon</sonar.organization>
+      <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
 
     <!-- pour utiliser le Nexus interne -->
