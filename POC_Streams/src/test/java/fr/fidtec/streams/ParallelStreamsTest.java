@@ -60,6 +60,9 @@ class ParallelStreamsTest {
 		assertEquals(15, sum);	
 	}
 	
+	
+	// Using the common thread pool is recommended by Oracle.
+	// We should have a very good reason for running parallel streams in custom thread pools.
 	@Test
 	void customThreadPool() throws InterruptedException, ExecutionException {
 		List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4);
