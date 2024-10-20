@@ -15,7 +15,7 @@
       <maven.compiler.target>17</maven.compiler.target>
       <java.version>17</java.version>
       <junit-jupiter.version>5.11.0</junit-jupiter.version>
-      <junit.version>4.12</junit.version>
+      <junit.version>4.13.1</junit.version>
       <log4j2.version>2.24.1</log4j2.version>
       <lombok.version>1.18.34</lombok.version>
       <mokito.version>5.14.1</mokito.version>
