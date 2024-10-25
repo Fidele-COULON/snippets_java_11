@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// Google Gson
 public class GsonParsingTest {
 
     private Gson gson = new Gson();

@@ -16,6 +16,7 @@ import java.io.StringWriter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+// Jackson
 public class JacksonParsingTest {
 
     ObjectMapper objectMapper = new ObjectMapper();
@@ -60,6 +61,7 @@ public class JacksonParsingTest {
         assertEquals("Fidele", personne.getPrenom());
     }
 
+    // Test un mapping de champ simple (JsonProperty)
     @Test
     void simpleParsingWithJsonProperty() throws IOException {
         String jsonString = "{\"nom\":\"COULON\",\"prenom\":\"Fidele\"}";
@@ -72,6 +74,7 @@ public class JacksonParsingTest {
         assertEquals("Fidele", person.getFirstName());
     }
 
+    // Test un mapping de champ inexistant : lève UnrecognizedPropertyException
     @Test
     void simpleParsingWithJsonPropertyNotExist() throws IOException {
         Assertions.assertThrows( UnrecognizedPropertyException.class, () -> {
@@ -80,6 +83,7 @@ public class JacksonParsingTest {
         });
     }
 
+    // Test un mapping de champ inexistant avec JsonIgnoreProperties défini : génère un attribut null
     @Test
     void simpleParsingWithJsonPropertyNotExistWithIgnore() throws IOException {
         String jsonString = "{\"nom\":\"COULON\",\"prenom2\":\"Fidele\"}";
