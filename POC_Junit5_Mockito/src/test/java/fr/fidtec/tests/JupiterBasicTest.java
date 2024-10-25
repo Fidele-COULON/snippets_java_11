@@ -42,7 +42,7 @@ class JupiterBasicTest {
 		System.out.println("AfterAll");
 	}
 
-	@Disabled("Ceci est un test désactivé") // @Ignoreremplace Junit4
+	@Disabled("Ceci est un test désactivé") // @Ignore Junit4
 	void Disabled() {
 		System.out.println("Disabled");
 	}
@@ -56,7 +56,7 @@ class JupiterBasicTest {
 	@Timeout(value = 50, unit = TimeUnit.MILLISECONDS)
 	void shouldSuccessBecauseTimeout2() throws InterruptedException {
 		Thread.sleep(10); // NOSONAR
-		assertTrue(false);
+		fail();
 	}
 
 	@Test
