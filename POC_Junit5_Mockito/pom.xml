@@ -9,15 +9,15 @@
 		<relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>POC_Junit5</artifactId>
+  <artifactId>POC_Junit5_Mockito</artifactId>
   
   <properties>
 	<mokito.version>5.14.1</mokito.version>
   </properties> 
 
   <dependencies>
-  
-	<dependency>
+
+	  <dependency>
 		<groupId>org.projectlombok</groupId>
 		<artifactId>lombok</artifactId>
 		<scope>provided</scope>
