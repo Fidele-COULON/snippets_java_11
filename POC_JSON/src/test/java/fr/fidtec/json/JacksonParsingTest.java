@@ -16,6 +16,7 @@ import java.io.StringWriter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+// https://www.baeldung.com/jackson-vs-gson
 // Jackson
 public class JacksonParsingTest {
 
