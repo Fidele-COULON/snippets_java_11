@@ -114,6 +114,7 @@
     <module>/POC_Streams</module>
      <module>POC_Mockito</module>
      <module>POC_JSON</module>
+     <module>POC_Vault</module>
  </modules>
 
 </project>
