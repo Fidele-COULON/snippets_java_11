@@ -1,5 +1,6 @@
 package fr.fidtec;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -13,7 +14,9 @@ import org.springframework.vault.client.VaultEndpoint;
 import org.springframework.vault.core.VaultTemplate;
 import org.springframework.vault.support.Versioned;
 
-public class VaultTest {
+// https://github.com/hashicorp/vault-examples/blob/main/examples/_quick-start/java/Example.java
+@Disabled("Cette classe de tests utilise une ressource externe (vault) !")
+class VaultTest {
 
     private static final String TOKEN_VAULT = "hvs.iX4NbNE0x1UTJQdX07doz5nz"; // "00000000-0000-0000-0000-000000000000";
 

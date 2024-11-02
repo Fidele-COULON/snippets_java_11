@@ -26,7 +26,7 @@ class ParallelStreamsTest {
 	}
 	
 	// There is one small difference between those two features: with CompletableFuture, you are able to specify your own thread-pool and
-	// don't use the threads from the commonPool, you cannot in case of  Parallel Streams.
+	// don't use the threads from the commonPool, you cannot in case of Parallel Streams.
 	@Test
 	void simpleParallelStreamTest() {
 		List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4);
@@ -72,7 +72,6 @@ class ParallelStreamsTest {
 		    () -> listOfNumbers.parallelStream().reduce(0, Integer::sum)).get();
 		
 		customThreadPool.shutdown();
-		customThreadPool.close();
 		
 		assertEquals(10, sum);	
 		

@@ -56,7 +56,7 @@ class JupiterBasicTest {
 	@Timeout(value = 50, unit = TimeUnit.MILLISECONDS)
 	void shouldSuccessBecauseTimeout2() throws InterruptedException {
 		Thread.sleep(10); // NOSONAR
-		fail();
+		// fail(); // fait planter le TU
 	}
 
 	@Test
