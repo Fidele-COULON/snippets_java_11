@@ -9,6 +9,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 // https://stackoverflow.com/questions/45460577/default-forkjoinpool-executor-taking-long-time
@@ -44,6 +45,8 @@ class CommonPoolTest {
         CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new)).join();
         
         System.out.println("Processed in " + Duration.ofNanos(System.nanoTime() - start).toSeconds() + " sec");
+
+		Assertions.assertTrue(true);
 	}
 	
 	

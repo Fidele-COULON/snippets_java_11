@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import fr.fidtec.beans.User;
 
 // https://www.baeldung.com/java-stream-reduce
-class ReduceTest {
+class ReduceStreamsTest {
 
 	@Test
 	void reduceIntegerTest() {
