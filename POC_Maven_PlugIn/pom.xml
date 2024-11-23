@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- le groupId doit être précisé dans la section pluginGroups du setting.xml pour utiliser la forme courte :
+         mvn counter:dependency-counter [-Dscope=test] (-maven-plugin est ajouté automatiquement)
+         sinon il faut utiliser la forme longue
+         mvn fr.fidtec:counter-maven-plugin:0.0.1-SNAPSHOT:dependency-counter
+         -->
+    <groupId>fr.fidtec</groupId>
+    <artifactId>counter-maven-plugin</artifactId>
+    <packaging>maven-plugin</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- is required and contains the necessary classes and interfaces to create a mojo -->
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>3.9.9</version>
+        </dependency>
+
+        <!-- use annotations in maven plugin classes -->
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>3.15.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- access the information about the project where is included the plugin -->
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-core</artifactId>
+            <version>3.9.9</version>
+        </dependency>
+    </dependencies>
+
+</project>
