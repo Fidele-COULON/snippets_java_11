@@ -118,7 +118,6 @@
      <module>POC_Vault</module>
      <module>POC_BeanValidation</module>
      <module>POC_StackWalker</module>
-     <module>POC_Maven_PlugIn_Sample</module>
  </modules>
 
 </project>
