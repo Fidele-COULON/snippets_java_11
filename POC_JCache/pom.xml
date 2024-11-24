@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.fidtec</groupId>
+        <artifactId>Snippets_java_1x</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>POC_JCache</artifactId>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- ehCache use SLF4J 1.7.x only -->
+        <!-- https://stackoverflow.com/questions/72128029/how-do-i-resolve-could-not-find-artifact-javax-xml-bindjaxb-apipom2-3-0-b1611 -->
+        <!-- si absent, javax.cache.CacheException: No CachingProviders have been configured -->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.10.8</version>
+           <classifier>jakarta</classifier>
+           <exclusions>
+               <exclusion>
+                   <groupId>org.glassfish.jaxb</groupId>
+                   <artifactId>jaxb-runtime</artifactId>
+               </exclusion>
+           </exclusions>
+        </dependency>
+
+        <!-- SLF4J in version 1.7.36 only seems to work with logback-classic in version 1.2.11 -->
+        <!-- SLF4J in version 1.7.36 works with log4j-slf4j-impl but not log4j-slf4j2-impl     -->
+        <!-- SLF4J in version 1.7.36 works with 2.0.16 slf4j-simple -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+</project>
