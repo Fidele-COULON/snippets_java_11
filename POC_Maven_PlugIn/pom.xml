@@ -26,6 +26,7 @@
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
             <version>3.9.9</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- use annotations in maven plugin classes -->
@@ -41,6 +42,7 @@
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-core</artifactId>
             <version>3.9.9</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
