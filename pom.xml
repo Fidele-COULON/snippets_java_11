@@ -134,6 +134,8 @@
      <module>POC_BeanValidation</module>
      <module>POC_StackWalker</module>
      <module>POC_JCache</module>
+     <module>POC_JFR</module>
+     <module>POC_Generic_Claz</module>
  </modules>
 
 </project>
