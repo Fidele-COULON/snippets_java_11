@@ -16,8 +16,8 @@
       <java.version>17</java.version>
       <junit-jupiter.version>5.11.0</junit-jupiter.version>
       <junit.version>4.13.1</junit.version>
-      <log4j2.version>2.24.2</log4j2.version>
-      <lombok.version>1.18.34</lombok.version>
+      <log4j2.version>2.24.3</log4j2.version>
+      <lombok.version>1.18.36</lombok.version>
       <mokito.version>5.14.1</mokito.version>
       <slf4j.version>2.0.16</slf4j.version>
       <sonar.organization>fidele-coulon</sonar.organization>
@@ -41,7 +41,6 @@
         </snapshotRepository>
 
   </distributionManagement>
-
 
   <dependencyManagement>
         <dependencies>
@@ -120,22 +119,22 @@
 
  <modules>
     <module>/POC_AspectJ</module>
+    <module>POC_BeanValidation</module>
     <module>/POC_CompletableFuture</module>
     <module>/POC_First_Java_1x</module>
+    <module>POC_Generic_Claz</module>
     <module>/POC_Interceptor</module>
+    <module>POC_JCache</module>
+    <module>POC_JFR</module>
+    <module>POC_JSON</module>
     <module>/POC_Junit5_Mockito</module>
     <module>/POC_Lombok</module>
     <module>/POC_Mapper</module>
-    <module>/POC_MongoDB</module>   
+    <module>POC_Mockito</module>
+    <module>/POC_MongoDB</module>
+    <module>POC_StackWalker</module>
     <module>/POC_Streams</module>
-     <module>POC_Mockito</module>
-     <module>POC_JSON</module>
-     <module>POC_Vault</module>
-     <module>POC_BeanValidation</module>
-     <module>POC_StackWalker</module>
-     <module>POC_JCache</module>
-     <module>POC_JFR</module>
-     <module>POC_Generic_Claz</module>
+    <module>POC_Vault</module>
  </modules>
 
 </project>
