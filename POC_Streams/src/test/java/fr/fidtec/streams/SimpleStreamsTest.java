@@ -3,6 +3,7 @@ package fr.fidtec.streams;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +43,20 @@ class SimpleStreamsTest {
                 .anyMatch(p -> p.equals("Hansel"));
 
         assertFalse(resultFalse);
+
+    }
+
+    @Test
+    void arrayStringStreamTest() {
+        String[] digits = {"1", "2", "3", "4", "5"};
+
+        // Ajout le caractère "+" sur toutes les lignes sauf la dernière
+        System.out.println(String.join("+" + System.lineSeparator(), digits) );
+
+        System.out.println(
+                Arrays.stream(digits)
+                        .map(s -> '+' + s + System.lineSeparator())
+                        .collect(Collectors.joining()));
 
     }
 
