@@ -135,6 +135,8 @@
     <module>POC_StackWalker</module>
     <module>/POC_Streams</module>
     <module>POC_Vault</module>
+     <module>POC_Flogger</module>
+     <module>POC_Log4j2</module>
  </modules>
 
 </project>

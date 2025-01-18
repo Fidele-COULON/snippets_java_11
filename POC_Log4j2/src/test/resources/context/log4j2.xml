@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  the root element of a log4j2 configuration file; 
+	  the status attribute represents the level at which internal log4j events should be logged
+	  
+	  The built-in log levels for log4j2 are:
+
+	    OFF : aucun niveau de gravité n'est pris en compte
+	    FATAL : correspond à des messages liés à un arrêt imprévu de l'application
+	    ERROR : correspond à des messages d'erreur *** Default, if omitted **
+	    WARN : correspond à des messages d'avertissement
+	    INFO : correspond à des messages d'information
+	    DEBUG : correspond à des messages de débogage
+	    TRACE : correspond à des messages de traces d'exécution (depuis la version 1.2.12)
+	    ALL : tous les niveaux de gravité sont pris en compte
+	    
+	  -->
+<Configuration status="INFO">
+
+	<!-- this element contains a list of appenders 
+	
+	Here are some of the most useful types of appenders that the library provides:
+
+    ConsoleAppender – logs messages to the System console
+    FileAppender – writes log messages to a file
+    RollingFileAppender – writes the messages to a rolling log file
+    JDBCAppender – uses a relational database for logs
+    AsyncAppender – contains a list of other appenders and determines the logs for these to be written in a separate thread
+	
+	-->
+    <Appenders>
+
+        <!-- Pour le ThreadContext (equivalent du MDC de Log4j1= Mapped Diagnostic Context, une HashMap et NDC une stack),
+		    %X doit être associé à la clé d'une information stockée entre {}
+		    %X donne toute la HashMap
+		    %x donne toute la pile/stack
+	    -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg - Reçu du ThreadContext = %X{UserName} %n%throwable"/>
+        </Console>
+ 
+        <File name="FILE_LOG" fileName="F:\\Logs\\POC_Log4j2.log">
+			<PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
+    	</File>
+   
+    </Appenders>
+    
+    <!-- this element contains a list of Logger instances. -->
+    <Loggers>
+    	
+    	<!-- An other logger catch logs from fr.fidtec.Log4j2.UseLog4j2 logger
+    		 if AppenderRef is omitted, Root AppenderRef is used per heritage
+    		 additivity="false" : so logs don't fire to default Root logger (Default : true) 		 
+    	-->
+    	 <Logger name="fr.fidtec.loggers" level="DEBUG" additivity="false">
+             <AppenderRef ref="Console"/>
+             <AppenderRef ref="FILE_LOG"/>
+    	</Logger>
+
+         <!--  The Root element is a standard logger that outputs all messages
+    	       if you don’t provide one, it will automatically be configured by default
+    	       with a Console appender and the ERROR log level.  -->
+        <Root level="ERROR">
+            <AppenderRef ref="Console"/>           
+        </Root>
+        
+    </Loggers>
+    
+</Configuration>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  the root element of a log4j2 configuration file; 
+	  the status attribute represents the level at which internal log4j events should be logged
+	  
+	  The built-in log levels for log4j2 are:
+
+	    OFF : aucun niveau de gravité n'est pris en compte
+	    FATAL : correspond à des messages liés à un arrêt imprévu de l'application
+	    ERROR : correspond à des messages d'erreur *** Default, if omitted **
+	    WARN : correspond à des messages d'avertissement
+	    INFO : correspond à des messages d'information
+	    DEBUG : correspond à des messages de débogage
+	    TRACE : correspond à des messages de traces d'exécution (depuis la version 1.2.12)
+	    ALL : tous les niveaux de gravité sont pris en compte
+	    
+	  -->
+<Configuration status="INFO">
+
+	<!-- this element contains a list of appenders 
+	
+	Here are some of the most useful types of appenders that the library provides:
+
+    ConsoleAppender – logs messages to the System console
+    FileAppender – writes log messages to a file
+    RollingFileAppender – writes the messages to a rolling log file
+    JDBCAppender – uses a relational database for logs
+    AsyncAppender – contains a list of other appenders and determines the logs for these to be written in a separate thread
+	
+	-->
+    <Appenders>
+    
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
+        </Console>
+ 
+        <!-- The attributes in the Syslog tag:
+
+    		name: defines the name of the appender, and must be unique. Since we can have multiple Syslog appenders for the same application and configuration
+    		format: it can be either set to BSD or RFC5424, and the Syslog records would be formatted accordingly
+    		host & port: the hostname and port of the remote Syslog server machine
+    		protocol: whether to use TCP or UPD
+    		facility: to which Syslog facility the event will be written
+    		The facility is used to try to classify the message. The facility option must be set to one of "KERN", "USER", "MAIL", "DAEMON", "AUTH", "SYSLOG", "LPR", "NEWS", "UUCP", "CRON", "AUTHPRIV", "FTP", "NTP", "AUDIT", "ALERT", "CLOCK", "LOCAL0", "LOCAL1", "LOCAL2", "LOCAL3", "LOCAL4", "LOCAL5", "LOCAL6", or "LOCAL7". These values may be specified as upper or lower case characters.
+    		connectTimeoutMillis: time period of waiting for an established connection, defaults to zero
+    		reconnectionDelayMillis: time to wait before re-attempting connection
+
+        	Uniquement en RFC 5424
+        	appname : Tag  sans espace
+        	messageId="Audit" : ajouté au début du message
+
+            enterpriseNumber="18060" inexploité ? The IANA enterprise number as described in RFC 5424
+            id="App" inexploité ? The default structured data id to use when formatting according to RFC 5424. If the LogEvent contains a StructuredDataMessage the id from the Message will be used instead of this value.
+
+            Source Name non setté : BSD et RFC5424 ????
+
+            includeMDC : Indicates whether data from the ThreadContextMap will be included in the RFC 5424 Syslog record. Defaults to true.
+
+            charset="ISO-8859-1"
+
+            It works and outputs using the default RFC5424 format: May 14 14:31:36 [server] [app]: My log message
+
+        	-->
+
+        <Syslog name="Syslog"
+                format="rfc5424"
+                host="localhost"
+                port="514"
+                protocol="TCP"
+                facility="LOCAL0"
+                newLine="true"
+
+                includeMDC="true"
+                mdcId="testlog4j"
+
+                appName="POC_Log4j2"
+                messageId="MonMessageAMoi"
+
+                enterpriseNumber="18060"
+                id="App"
+
+                charset="UTF-8"
+
+                connectTimeoutMillis="1000"
+                reconnectionDelayMillis="5000"
+
+        >
+        </Syslog>
+    </Appenders>
+    
+    <!-- this element contains a list of Logger instances. -->
+    <Loggers>
+    	
+    	<!-- An other logger catch logs from fr.fidtec.Log4j2.UseLog4j2 logger
+    		 if AppenderRef is omitted, Root AppenderRef is used per heritage
+    		 additivity="false" : so logs don't fire to default Root logger (Default : true) 		 
+    	-->
+    	 <Logger name="fr.fidtec.loggers" level="DEBUG" additivity="false">
+             <AppenderRef ref="Console"/>
+             <AppenderRef ref="Syslog"/>
+    	</Logger>
+
+         <!--  The Root element is a standard logger that outputs all messages
+    	       if you don’t provide one, it will automatically be configured by default
+    	       with a Console appender and the ERROR log level.  -->
+        <Root level="ERROR">
+            <AppenderRef ref="Console"/>           
+        </Root>
+        
+    </Loggers>
+    
+</Configuration>
