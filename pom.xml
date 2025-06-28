@@ -137,6 +137,7 @@
     <module>POC_Vault</module>
      <module>POC_Flogger</module>
      <module>POC_Log4j2</module>
+     <module>POC_JDBC</module>
  </modules>
 
 </project>
