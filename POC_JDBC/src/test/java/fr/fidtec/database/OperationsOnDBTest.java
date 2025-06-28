@@ -1,6 +1,7 @@
 package fr.fidtec.database;
 
 import fr.fidtec.database.enums.SGBDR;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
@@ -28,8 +29,10 @@ class OperationsOnDBTest {
 
     /**
      * Lance une série d'opérations SQL sur une instance MariaDB.
+     * Disabled car tous les TUs sont KO si le serveur est inaccessible.
      */
     @Test
+    @Disabled
     void operationsOnMariaDBTest() throws SQLException {
         ConnectionFactory factory = new ConnectionFactory(SGBDR.MARIADB);
         createTableUsers(factory.getConnection());

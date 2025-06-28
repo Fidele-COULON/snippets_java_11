@@ -6,7 +6,7 @@ public class ListeTableau <T> {
 
     private final ArrayList<T> arrayList =  new ArrayList<>() ;
 
-    private Class<T> clazz;
+    private final Class<T> clazz;
 
     public ListeTableau(Class<T> clazz) {
         this.clazz = clazz;

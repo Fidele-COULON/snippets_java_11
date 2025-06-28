@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -68,7 +69,7 @@ class WiremockTest {
 
     private String convertResponseToString(CloseableHttpResponse response) throws IOException {
         InputStream responseStream = response.getEntity().getContent();
-        Scanner scanner = new Scanner(responseStream, "UTF-8");
+        Scanner scanner = new Scanner(responseStream, StandardCharsets.UTF_8);
         String responseString = scanner.useDelimiter("\\Z").next();
         scanner.close();
         return responseString;

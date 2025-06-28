@@ -4,9 +4,9 @@ import java.util.List;
 
 public class GameSpy {
 	
-	private Player player;
+	private final Player player;
 
-	private List<String> opponents;
+	private final List<String> opponents;
 	
     public GameSpy(Player player, List<String> opponents) {
         this.player = player;

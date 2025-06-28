@@ -37,7 +37,7 @@ class H2DBRawCnxTest {
         assertThrows(SQLException.class, () -> {
             try (Connection ignored = DriverManager.getConnection("toto")) {
                 System.out.println("Connexion H2 effectuée !");
-            } ;
+            }
         });
     }
 }

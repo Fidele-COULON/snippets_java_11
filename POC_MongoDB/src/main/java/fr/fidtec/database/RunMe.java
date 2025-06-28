@@ -14,7 +14,7 @@ import com.mongodb.client.MongoDatabase;
 // https://www.baeldung.com/java-mongodb
 public class RunMe {
 
-	private static Logger logger = LoggerFactory.getLogger(RunMe.class);
+	private static final Logger logger = LoggerFactory.getLogger(RunMe.class);
 	
 	public static void main(String[] args) {
 		

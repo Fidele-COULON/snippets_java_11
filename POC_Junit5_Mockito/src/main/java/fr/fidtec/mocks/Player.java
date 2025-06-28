@@ -2,7 +2,7 @@ package fr.fidtec.mocks;
 
 public class Player {
 
-	private String weapon;
+	private final String weapon;
 
     public Player(String weapon) {
         this.weapon = weapon;

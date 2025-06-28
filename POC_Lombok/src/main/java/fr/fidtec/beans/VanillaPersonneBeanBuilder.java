@@ -2,7 +2,7 @@ package fr.fidtec.beans;
 
 public class VanillaPersonneBeanBuilder {
 
-	private VanillaPersonneBean bean = new VanillaPersonneBean();
+	private final VanillaPersonneBean bean = new VanillaPersonneBean();
 	
 	public VanillaPersonneBeanBuilder nom(String nom) {
 		bean.setNom(nom);
