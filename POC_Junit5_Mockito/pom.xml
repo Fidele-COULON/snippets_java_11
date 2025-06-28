@@ -41,10 +41,11 @@
 	    <scope>test</scope>
 	</dependency>
 
+	  <!-- https://mvnrepository.com/artifact/org.wiremock/wiremock -->
 	  <dependency>
 		  <groupId>org.wiremock</groupId>
 		  <artifactId>wiremock</artifactId>
-		  <version>3.9.1</version>
+		  <version>3.13.1</version>
 		  <scope>test</scope>
 	  </dependency>
 
