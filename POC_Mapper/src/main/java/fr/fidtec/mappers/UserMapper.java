@@ -20,6 +20,8 @@ public interface UserMapper {
     @Mapping(target = "genre", expression = "java(convertGenderToGenre(source.getGender()))")
     UserBeanDest userBeanSourceToUserBeanDest(UserBeanSource source);
 
+    // pas une bonne idée, default sera appliquée à chaque méthode utilisant le type MrMme_US
+    // il faut externaliser la fonction et utiliser @Mapper(import)
     default MrMme_FR convertGenderToGenre(MrMme_US gender) {
         if (gender == MrMme_US.Sir) {
             return MrMme_FR.Monsieur;

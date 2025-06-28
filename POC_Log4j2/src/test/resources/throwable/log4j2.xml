@@ -30,23 +30,29 @@
     <Appenders>
     
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg %n %throwable"/>
+            <!-- %throwable n'est pas obligatoire pour générer la ST -->
+            <PatternLayout pattern="!!!! %d [%t] %-5level %logger{36} - %m%n"/>
         </Console>
- 
-        <File name="FILE_LOG" fileName="F:\\Logs\\POC_MongoDB.log">
-			<PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg %n %throwable"/>
-    	</File>
-   
+
+        <File name="FILE_LOG" fileName="F:\\Logs\\POC_Log4j2.log">
+            <PatternLayout pattern="////%d [%t] %-5level %logger{36} - %msg :::: %throwable{3}%n"/>
+        </File>
+
     </Appenders>
     
     <!-- this element contains a list of Logger instances. -->
     <Loggers>
-    	 <Logger name="fr.fidtec.database.RunMe" level="DEBUG" additivity="false">
-      		<AppenderRef ref="FILE_LOG"/>
-      		<AppenderRef ref="Console"/> 
-    	</Logger>
     	
-        <!--  The Root element is a standard logger that outputs all messages
+    	<!-- An other logger catch logs from fr.fidtec.Log4j2.UseLog4j2 logger
+    		 if AppenderRef is omitted, Root AppenderRef is used per heritage
+    		 additivity="false" : so logs don't fire to default Root logger (Default : true) 		 
+    	-->
+    	 <Logger name="fr.fidtec.loggers" level="DEBUG" additivity="false">
+             <AppenderRef ref="Console"/>
+             <AppenderRef ref="FILE_LOG"/>
+    	</Logger>
+
+         <!--  The Root element is a standard logger that outputs all messages
     	       if you don’t provide one, it will automatically be configured by default
     	       with a Console appender and the ERROR log level.  -->
         <Root level="ERROR">

@@ -36,4 +36,9 @@ public class Log4j2SyslogTest {
 
         // 1 2024-12-31T13:39:06.510+01:00 host.docker.internal POC_Log4j2 16012 MonMessageAMoi [testlog4j@18060 UserName="Fidele COULON"] Fatal log message
     }
+
+    @Test
+    void exceptionTest() {
+        LOGGER.error("Error log message", new Exception("Exception sent to SYSLOG"));
+    }
 }

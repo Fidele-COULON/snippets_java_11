@@ -30,6 +30,8 @@
     <Appenders>
     
         <Console name="Console" target="SYSTEM_OUT">
+            <!-- %m : legacy (compatibilité Log4j1)
+                 %msg=%message : utilise les spécificités log4j2 -->
             <PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
         </Console>
  

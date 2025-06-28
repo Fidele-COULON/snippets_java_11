@@ -65,25 +65,34 @@
                 format="rfc5424"
                 host="localhost"
                 port="514"
-                protocol="TCP"
+                protocol="UDP"
                 facility="LOCAL0"
                 newLine="true"
 
                 includeMDC="true"
-                mdcId="testlog4j"
+                mdcId="mdcIdPourSyslog"
 
                 appName="POC_Log4j2"
-                messageId="MonMessageAMoi"
+                messageId="messageIDPourSyslog"
 
                 enterpriseNumber="18060"
-                id="App"
+                id="snippets_java_1x"
 
                 charset="UTF-8"
 
                 connectTimeoutMillis="1000"
                 reconnectionDelayMillis="5000"
-
         >
+            <!-- https://stackoverflow.com/questions/40486799/send-log4j2-stack-traces-over-syslog -->
+            <LoggerFields>
+                <!-- Génère [testlog4j@18060 category="loggers.fr.fidtec.database.Log4j2SyslogTest" priority="ERROR" thread="main"] -->
+                <KeyValuePair key="thread" value="%t"/>
+                <KeyValuePair key="priority" value="%p"/>
+                <KeyValuePair key="category" value="%c"/>
+                <!-- Redondant avec ExceptionPattern -->
+                <KeyValuePair key="exception" value="%ex{full}"/>
+            </LoggerFields>
+            <!-- <ExceptionPattern>%ex{full}</ExceptionPattern> -->
         </Syslog>
     </Appenders>
     
